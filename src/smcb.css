@@ -1,0 +1,14 @@
+.ui-smcb {
+    display: block;
+    position: relative;
+}
+
+.ui-smcb-dropdown {
+    display: block;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.ui-smcb-option.selected {
+    background: lightblue;
+}

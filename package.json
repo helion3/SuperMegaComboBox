@@ -1,0 +1,16 @@
+{
+  "name": "angular-supermegacombobox",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/smcb.js",
+  "scripts": {
+    "deploy": "cp src/smcb.js dist/smcb.js && cp src/smcb.css dist/smcb.css && uglifyjs src/smcb.js -o dist/smcb.min.js && cssnano src/smcb.css dist/smcb.min.css",
+    "test": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

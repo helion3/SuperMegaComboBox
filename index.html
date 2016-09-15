@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="smcb-demo">
+    <head>
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./src/smcb.css">
+        <style>
+            html, body { height: 100% }
+            .ui-smcb { width: 50% }
+
+            .ng-invalid.ng-touched { border: 1px solid red }
+        </style>
+    </head>
+    <body ng-controller="DemoCtrl">
+        <div class="container">
+            <h1>SuperMegaComboBox</h1>
+            <p>Selected: {{ model.state }}</p>
+            <p>isOpen: {{ isOpen || false }}</p>
+            <sm-combobox is-open="isOpen" ng-model="model.state" value="state">
+                <sm-combobox-option ng-repeat="state in states track by $index"><span ng-bind="state"></span></sm-combobox-option>
+            </sm-combobox>
+        </div>
+    </body>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./src/smcb.js"></script>
+    <script>
+        var app = angular.module('smcb-demo', ['ui.superMegaComboBox']);
+
+        app.config(['smComboBoxConfigProvider', function(smComboBoxConfigProvider) {
+            smComboBoxConfigProvider.openOnFocus = true;
+        }]);
+
+        app.controller('DemoCtrl', ['$scope', function($scope) {
+            $scope.model = {
+                state: 'Colorado'
+            };
+
+            $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
+                'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+                'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
+                'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+                'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma',
+                'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
+                'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
+                'None, but long text to help test overflow'];
+        }]);
+    </script>
+</html>
