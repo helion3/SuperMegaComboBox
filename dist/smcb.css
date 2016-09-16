@@ -12,3 +12,25 @@
 .ui-smcb-option.selected {
     background: lightblue;
 }
+
+.ui-smcb .icon {
+    position: relative;
+}
+
+.ui-smcb .icon:before {
+    background: no-repeat;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    height: 20px;
+    width: 20px;
+}
+
+.ui-smcb .icon-down-arrow:before {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%0A%3Cpath%20fill%3D%22%23000%22%20d%3D%22M17.418%206.109c0.272-0.268%200.709-0.268%200.979%200s0.271%200.701%200%200.969l-7.908%207.83c-0.27%200.268-0.707%200.268-0.979%200l-7.908-7.83c-0.27-0.268-0.27-0.701%200-0.969s0.709-0.268%200.979%200l7.419%207.141%207.418-7.141z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E');
+}

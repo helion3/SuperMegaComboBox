@@ -13,11 +13,22 @@
     <body ng-controller="DemoCtrl">
         <div class="container">
             <h1>SuperMegaComboBox</h1>
-            <p>Selected: {{ model.state }}</p>
-            <p>isOpen: {{ isOpen || false }}</p>
-            <sm-combobox is-open="isOpen" ng-model="model.state" value="state">
-                <sm-combobox-option ng-repeat="state in states track by $index"><span ng-bind="state"></span></sm-combobox-option>
-            </sm-combobox>
+            <section>
+                <h2>Demo: Strings</h2>
+                <p>Selected: {{ model.state }}</p>
+                <p>isOpen: {{ isOpen.demo1 || false }}</p>
+                <sm-combobox is-open="isOpen.demo1" ng-model="model.state" value="state">
+                    <sm-combobox-option ng-repeat="state in states"><span ng-bind="state"></span></sm-combobox-option>
+                </sm-combobox>
+            </section>
+            <section>
+                <h2>Demo: Objects</h2>
+                <p>Selected: {{ model.test.text || model.test }}</p>
+                <p>isOpen: {{ isOpen.demo2 || false }}</p>
+                <sm-combobox is-open="isOpen.demo2" ng-model="model.test" value="text">
+                    <sm-combobox-option ng-repeat="test in tests"><span ng-bind="test.text"></span></sm-combobox-option>
+                </sm-combobox>
+            </section>
         </div>
     </body>
     <script src="./node_modules/angular/angular.min.js"></script>
@@ -31,7 +42,16 @@
 
         app.controller('DemoCtrl', ['$scope', function($scope) {
             $scope.model = {
-                state: 'Colorado'
+                state: 'Colorado',
+                test: {
+                    value: 1,
+                    text: 'A'
+                }
+            };
+
+            $scope.isOpen = {
+                demo1: false,
+                demo2: false
             };
 
             $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
@@ -42,6 +62,14 @@
                 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
                 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
                 'None, but long text to help test overflow'];
+
+            $scope.tests = [{
+                value: 1,
+                text: 'A'
+            }, {
+                value: 2,
+                text: 'B'
+            }];
         }]);
     </script>
 </html>
